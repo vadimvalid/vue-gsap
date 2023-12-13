@@ -55,7 +55,7 @@ const buttons = ref({
 </script>
 
 <template>
-  <header>
+  <header class="header">
     <div class="container">
       <div class="wrapper">
         <app-logo v-bind="logoProps" />
@@ -73,6 +73,10 @@ const buttons = ref({
 </template>
 
 <style scoped>
+.header {
+  padding: 1.25rem 0;
+}
+
 .wrapper {
   display: flex;
   justify-content: space-between;
