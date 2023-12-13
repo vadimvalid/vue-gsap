@@ -2,6 +2,8 @@
 import { ref, onMounted } from "vue";
 import gsap from "gsap";
 import AppHeader from "./components/AppHeader.vue";
+import AppSectionTitle from "./components/AppSectionTitle.vue";
+
 const revealUp = ref(true);
 const animateImage = () => {
   gsap.fromTo(
@@ -62,4 +64,7 @@ onMounted(() => {
 
 <template>
   <app-header />
+  <main>
+    <app-section-title />
+  </main>
 </template>
