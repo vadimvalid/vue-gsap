@@ -1,5 +1,5 @@
 <script setup>
-import { ref, onMounted } from "vue";
+import { onMounted, ref } from "vue";
 import gsap from "gsap";
 import AppHeader from "./components/AppHeader.vue";
 import AppSectionTitle from "./components/AppSectionTitle.vue";
@@ -59,67 +59,27 @@ const cardProps = ref({
   ],
 });
 
-const revealUp = ref(true);
-const animateImage = () => {
-  gsap.fromTo(
-    revealUp.value,
-    {
-      opacity: 0,
-      clipPath: "polygon(0% 8%, 0% 7%, 0% 99%,0% 100%)",
-      autoAlpha: 0,
-      scale: 1.2,
+const parallaxSection = () => {
+  gsap.to("#titles", {
+    scrollTrigger: {
+      trigger: "#titles",
+      start: "top top",
+      end: "bottom top",
+      scrub: true,
     },
-    {
-      opacity: 1,
-      clipPath: "polygon(0% 0%, 100% 0%, 100% 100%,0% 100%)",
-      autoAlpha: 1,
-      delay: 0.5,
-      scale: 1,
-      duration: 3,
-      ease: "power4.out",
-    }
-  );
-};
-
-const animateInfo = () => {
-  const tl = gsap.timeline();
-  tl.fromTo(
-    ".revealUp",
-    {
-      opacity: 0,
-      y: 150,
-      autoAlpha: 0,
-      stagger: {
-        each: 0.1,
-        from: "top",
-        ease: "power2.inOut",
-      },
-    },
-    {
-      opacity: 1,
-      y: 0,
-      autoAlpha: 1,
-      delay: 0.5,
-      duration: 1,
-      ease: "power4.out",
-      stagger: {
-        each: 0.1,
-        from: "top",
-        ease: "power2.inOut",
-      },
-    }
-  );
+    y: "50%",
+    opacity: 0,
+  });
 };
 
 onMounted(() => {
-  animateImage();
-  animateInfo();
+  parallaxSection();
 });
 </script>
 
 <template>
   <app-header />
-  <main>
+  <main class="main">
     <app-section-title />
     <app-section-cards v-bind="cardProps" />
   </main>

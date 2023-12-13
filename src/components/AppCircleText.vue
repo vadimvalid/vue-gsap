@@ -1,5 +1,8 @@
 <script setup>
-import { defineProps } from "vue";
+import { defineProps, onMounted } from "vue";
+import gsap from "gsap";
+import ScrollTrigger from "gsap/ScrollTrigger";
+gsap.registerPlugin(ScrollTrigger);
 
 const props = defineProps({
   title: {
@@ -15,6 +18,26 @@ const props = defineProps({
 const getImageUrl = () => {
   return new URL(`../assets/${props.src}`, import.meta.url);
 };
+
+const animateCircle = () => {
+  const tl = gsap
+    .timeline({
+      scrollTrigger: {
+        trigger: "#cards",
+        start: "top top",
+        end: "+=10000",
+      },
+    })
+    .to(".circle__svg", {
+      rotation: 360 * 5,
+      duration: 1,
+      ease: "none",
+    });
+};
+
+onMounted(() => {
+  animateCircle();
+});
 </script>
 
 <template>

@@ -1,5 +1,6 @@
 <script setup>
-import { ref } from "vue";
+import { onMounted, ref } from "vue";
+import gsap from "gsap";
 import AppLogo from "./AppLogo.vue";
 import AppNav from "./AppNav.vue";
 import AppButtons from "./AppButtons.vue";
@@ -51,6 +52,27 @@ const buttons = ref({
       isSecondary: true,
     },
   ],
+});
+
+const animateHeader = () => {
+  const tl = gsap.timeline();
+  tl.fromTo(
+    ".header",
+    {
+      opacity: 0,
+      y: 100,
+    },
+    {
+      opacity: 1,
+      y: 0,
+      duration: 1,
+      ease: "power1.out",
+    }
+  );
+};
+
+onMounted(() => {
+  animateHeader();
 });
 </script>
 
