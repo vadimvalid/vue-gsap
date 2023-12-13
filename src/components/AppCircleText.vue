@@ -1,8 +1,10 @@
 <script setup>
-import { defineProps, onMounted } from "vue";
+import { computed, defineProps, onMounted, onUnmounted, ref } from "vue";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
+
+const deg = ref(0);
 
 const props = defineProps({
   title: {
@@ -23,20 +25,34 @@ const animateCircle = () => {
   const tl = gsap
     .timeline({
       scrollTrigger: {
-        trigger: "#cards",
+        trigger: ".circle__svg",
         start: "top top",
-        end: "+=10000",
       },
     })
     .to(".circle__svg", {
-      rotation: 360 * 5,
-      duration: 1,
+      rotation: 180,
+      duration: 2,
       ease: "none",
     });
 };
 
 onMounted(() => {
   animateCircle();
+  window.addEventListener("scroll", handleScroll);
+});
+
+onUnmounted(() => {
+  window.removeEventListener("scroll", handleScroll);
+});
+
+const handleScroll = () => {
+  deg.value = window.scrollY * 0.5;
+};
+
+const rotate = computed(() => {
+  return {
+    transform: `rotate(${deg.value}deg)`,
+  };
 });
 </script>
 
@@ -44,6 +60,7 @@ onMounted(() => {
   <div class="circle">
     <svg
       class="circle__svg"
+      :style="rotate"
       viewBox="0 0 160 160"
       xmlns="http://www.w3.org/2000/svg"
     >

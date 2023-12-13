@@ -53,13 +53,10 @@ const animateCardsScroll = () => {
       .timeline({
         scrollTrigger: {
           trigger: section,
-          start: "top 5%",
+          start: "-5% 5%",
           pin: true,
           end: "+=" + 100 * (cards.length - 1) + "%",
           scrub: true,
-        },
-        onComplete: () => {
-          ScrollTrigger.refresh();
         },
       })
       .fromTo(
@@ -69,7 +66,7 @@ const animateCardsScroll = () => {
           y: 100,
         },
         {
-          opacity: 0,
+          opacity: 0.5,
           y: 0,
           scaleY: 0.9,
           scaleX: 0.9,
