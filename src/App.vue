@@ -1,6 +1,7 @@
 <script setup>
 import { ref, onMounted } from "vue";
 import gsap from "gsap";
+import AppHeader from "./components/AppHeader.vue";
 const revealUp = ref(true);
 const animateImage = () => {
   gsap.fromTo(
@@ -60,22 +61,5 @@ onMounted(() => {
 </script>
 
 <template>
-  <div>
-    <div class="revealUpContainer">
-      <h1 class="revealUp">Vue Animation</h1>
-    </div>
-    <div class="revealUpContainer">
-      <p class="revealUp">Unlock the Magic and Unleash Your Creativity</p>
-    </div>
-  </div>
-  <div>
-    <img
-      ref="revealUp"
-      alt="Vue logo"
-      class="logo"
-      src="./assets/logo.svg"
-      width="125"
-      height="125"
-    />
-  </div>
+  <app-header />
 </template>
