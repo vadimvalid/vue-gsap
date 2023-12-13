@@ -17,11 +17,11 @@ const props = defineProps({
   },
   cardSubTitle: {
     type: String,
-    required: true,
+    required: false,
   },
   cardListItems: {
     type: Array,
-    required: true,
+    required: false,
   },
   cardImage: {
     type: Object,
@@ -40,7 +40,7 @@ const title = computed(() => props.title.join(" "));
         >{{ cardName }}
       </p>
       <h2 class="card__title">{{ cardTitle }}</h2>
-      <p class="card__subtitle">{{ cardSubTitle }}</p>
+      <p class="card__subtitle" v-if="cardSubTitle">{{ cardSubTitle }}</p>
       <ul class="card__list">
         <app-card-list-item
           v-for="item in cardListItems"
