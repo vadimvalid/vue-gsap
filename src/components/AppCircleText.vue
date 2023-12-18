@@ -100,4 +100,18 @@ const rotate = computed(() => {
   transform: translate(-50%, -50%);
   z-index: 2;
 }
+
+@media screen and (max-width: 1200px) {
+  .circle__svg {
+    width: 8rem;
+    height: 8rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .circle__svg {
+    width: 5rem;
+    height: 5rem;
+  }
+}
 </style>

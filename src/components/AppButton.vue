@@ -43,4 +43,11 @@ const props = defineProps({
   background-color: #6d38f5;
   color: #fff;
 }
+
+@media screen and (max-width: 768px) {
+  .button {
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+  }
+}
 </style>
