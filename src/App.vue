@@ -23,9 +23,7 @@ const cardProps = ref({
           title: "Открытое REST API для интеграции",
         },
       ],
-      cardImage: {
-        src: "https://images.unsplash.com/photo-1605379399642-870262d3d051?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80",
-      },
+      cardImage: "card-1.png",
     },
     {
       cardNumber: "02",
@@ -42,9 +40,7 @@ const cardProps = ref({
           title: "Вещайте по расписанию автовебинары или поток с ip камеры",
         },
       ],
-      cardImage: {
-        src: "https://images.unsplash.com/photo-1605379399642-870262d3d051?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80",
-      },
+      cardImage: "card-1.png",
     },
     {
       cardNumber: "03",
@@ -52,9 +48,7 @@ const cardProps = ref({
       cardTitle: "Система продажи видео-контента",
       cardSubTitle:
         "Прием оплаты в плеере. Для монетизации видеоуроков, вебинаров, трансляций и любого авторского видеоконтента.",
-      cardImage: {
-        src: "https://images.unsplash.com/photo-1605379399642-870262d3d051?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80",
-      },
+      cardImage: "card-1.png",
     },
   ],
 });

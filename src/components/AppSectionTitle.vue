@@ -69,4 +69,16 @@ onMounted(() => {
   gap: 2.5rem;
   padding: 12.5rem 0;
 }
+
+@media screen and (max-width: 1200px) {
+  .wrapper {
+    padding: 8rem 0;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .wrapper {
+    padding: 5rem 0;
+  }
+}
 </style>

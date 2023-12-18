@@ -32,4 +32,11 @@ const getImageUrl = () => {
   display: flex;
   width: 11.625rem;
 }
+
+@media screen and (max-width: 768px) {
+  .logo {
+    display: flex;
+    width: 8rem;
+  }
+}
 </style>

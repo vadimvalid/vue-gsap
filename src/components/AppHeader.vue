@@ -108,4 +108,36 @@ onMounted(() => {
 .lang a {
   color: #989898;
 }
+
+@media screen and (max-width: 1200px) {
+  .wrapper {
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .wrapper > .logo {
+    flex: 1;
+  }
+
+  .wrapper > .logo {
+    flex: 1 1 auto;
+  }
+
+  .wrapper > .nav-menu {
+    flex: 1;
+    order: 1;
+    flex-basis: 100%;
+    padding-left: 0;
+  }
+
+  .wrapper > .nav-menu:last-of-type {
+    order: 2;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .lang {
+    font-size: 0.875rem;
+  }
+}
 </style>

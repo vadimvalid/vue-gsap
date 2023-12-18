@@ -23,4 +23,10 @@ const props = defineProps({
   background-color: #f4f2f6;
   border-radius: 13px;
 }
+
+@media screen and (max-width: 768px) {
+  .buttons {
+    padding: 4px;
+  }
+}
 </style>

@@ -82,6 +82,12 @@ select {
   padding: 0 3.75rem;
 }
 
+@media screen and (max-width: 768px) {
+  .container {
+    padding: 0 1.25rem;
+  }
+}
+
 ul,
 ol {
   margin: 0;

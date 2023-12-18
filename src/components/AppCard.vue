@@ -24,12 +24,14 @@ const props = defineProps({
     required: false,
   },
   cardImage: {
-    type: Object,
+    type: String,
     required: true,
   },
 });
 
-const title = computed(() => props.title.join(" "));
+const getImageUrl = () => {
+  return new URL(`../assets/${props.cardImage}`, import.meta.url);
+};
 </script>
 
 <template>
@@ -50,7 +52,7 @@ const title = computed(() => props.title.join(" "));
       </ul>
     </div>
     <div class="image">
-      <!-- <img v-bind="cardImage" /> -->
+      <img :src="getImageUrl()" alt="Card image" />
     </div>
   </article>
 </template>
@@ -73,16 +75,21 @@ const title = computed(() => props.title.join(" "));
 }
 
 .image {
+  position: relative;
   flex: 0 1 40%;
   height: 100%;
-  position: relative;
   background-color: #fff;
   border-radius: 30px;
   aspect-ratio: 1/1;
+  background: linear-gradient(327.9deg, #1a005c 19.8%, #6d38f5 100%);
 }
 
-.image img {
-  height: 100%;
+.image > img {
+  position: absolute;
+  bottom: 2.5rem;
+  right: 0;
+  width: 65%;
+  height: auto;
 }
 
 .card__number {
@@ -112,5 +119,83 @@ const title = computed(() => props.title.join(" "));
   display: flex;
   flex-direction: column;
   gap: 0.875rem;
+}
+
+@media screen and (max-width: 1200px) {
+  .card {
+    gap: 3rem;
+    padding: 2.5rem;
+  }
+
+  .content {
+    flex: 0 1 70%;
+    gap: 1rem;
+  }
+
+  .image {
+    flex: 0 1 30%;
+  }
+
+  .image > img {
+    bottom: 1.5rem;
+  }
+
+  .card__number {
+    gap: 0.5rem;
+    margin-bottom: 1.25rem;
+    font-size: 1rem;
+  }
+
+  .card__title {
+    font-size: 1.25rem;
+  }
+
+  .card__subtitle {
+    font-size: 1.25rem;
+  }
+
+  .card__list {
+    gap: 0.5rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .card {
+    flex-direction: column;
+    gap: 2rem;
+    padding: 1.5rem;
+  }
+
+  .content {
+    flex: none;
+    gap: 1rem;
+  }
+
+  .image {
+    flex: none;
+    max-height: 18.75rem;
+  }
+
+  .image > img {
+    bottom: 1rem;
+    width: 50%;
+  }
+
+  .card__number {
+    margin-bottom: 1rem;
+    font-size: 0.875rem;
+  }
+
+  .card__title {
+    font-size: 1.25rem;
+  }
+
+  .card__subtitle {
+    font-size: 1rem;
+  }
+
+  .card__list {
+    gap: 0.25rem;
+  }
 }
 </style>
